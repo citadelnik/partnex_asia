@@ -1,0 +1,1425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partnex.net - From Connection to Partnership</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #764ba2;
+        }
+        
+        .cta-header {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+        
+        .cta-header:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            padding: 100px 0;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a"><stop offset="0%" stop-color="%23ffffff" stop-opacity="0.1"/><stop offset="100%" stop-color="%23ffffff" stop-opacity="0"/></radialGradient></defs><circle cx="200" cy="200" r="100" fill="url(%23a)"/><circle cx="800" cy="300" r="150" fill="url(%23a)"/><circle cx="400" cy="700" r="120" fill="url(%23a)"/></svg>') no-repeat;
+            background-size: cover;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(2deg); }
+        }
+        
+        .hero h1 {
+            font-size: 4em;
+            margin-bottom: 20px;
+            font-weight: bold;
+            position: relative;
+            z-index: 1;
+            background: linear-gradient(45deg, #ffffff, #f0f8ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+        
+        .tagline {
+            font-size: 1.8em;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero-description {
+            font-size: 1.3em;
+            margin-bottom: 50px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+        }
+        
+        .cta-main {
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+            color: white;
+            padding: 20px 45px;
+            border: none;
+            border-radius: 35px;
+            font-size: 1.3em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            margin: 10px;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 8px 25px rgba(255,107,107,0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .cta-main:hover {
+            background: linear-gradient(45deg, #ff5252, #ff7979);
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(255,107,107,0.6);
+        }
+        
+        .cta-secondary {
+            background: rgba(255,255,255,0.15);
+            color: white;
+            padding: 20px 45px;
+            border: 2px solid rgba(255,255,255,0.8);
+            border-radius: 35px;
+            font-size: 1.3em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            margin: 10px;
+            position: relative;
+            z-index: 1;
+            backdrop-filter: blur(10px);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .cta-secondary:hover {
+            background: rgba(255,255,255,0.95);
+            color: #764ba2;
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(255,255,255,0.3);
+        }
+        
+        /* Features Section */
+        .features {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            padding: 120px 0;
+            position: relative;
+        }
+        
+        .features::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(to bottom, rgba(102,126,234,0.1), transparent);
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 3em;
+            margin-bottom: 20px;
+            color: #333;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+        
+        .features-subtitle {
+            text-align: center;
+            font-size: 1.3em;
+            color: #666;
+            margin-bottom: 60px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 40px;
+        }
+        
+        .feature-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            padding: 45px 35px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(102,126,234,0.1);
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+        
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 60px rgba(102,126,234,0.15);
+            border-color: rgba(102,126,234,0.3);
+        }
+        
+        .feature-icon {
+            font-size: 4em;
+            margin-bottom: 25px;
+            display: inline-block;
+            padding: 20px;
+            background: linear-gradient(135deg, rgba(102,126,234,0.1), rgba(118,75,162,0.1));
+            border-radius: 50%;
+            transition: all 0.4s ease;
+        }
+        
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1) rotate(5deg);
+            background: linear-gradient(135deg, rgba(102,126,234,0.2), rgba(118,75,162,0.2));
+        }
+        
+        .feature-title {
+            font-size: 1.6em;
+            margin-bottom: 20px;
+            color: #333;
+            font-weight: bold;
+        }
+        
+        .feature-card p {
+            color: #666;
+            line-height: 1.7;
+            font-size: 1.05em;
+        }
+        
+        /* How It Works */
+        .how-it-works {
+            background: #f8f9fa;
+            padding: 100px 0;
+        }
+        
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .step {
+            text-align: center;
+            position: relative;
+        }
+        
+        .step-number {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            font-weight: bold;
+            margin: 0 auto 20px;
+        }
+        
+        .step-title {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        /* Before vs After */
+        .before-after {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 120px 0;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .before-after::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="b"><stop offset="0%" stop-color="%23ffffff" stop-opacity="0.05"/><stop offset="100%" stop-color="%23ffffff" stop-opacity="0"/></radialGradient></defs><circle cx="100" cy="800" r="200" fill="url(%23b)"/><circle cx="900" cy="200" r="150" fill="url(%23b)"/><circle cx="500" cy="500" r="300" fill="url(%23b)"/></svg>') no-repeat;
+            background-size: cover;
+            animation: float 8s ease-in-out infinite;
+        }
+        
+        .before-after .section-title {
+            color: white;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .before-after .section-title::after {
+            background: linear-gradient(45deg, #ffffff, #f0f8ff);
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin-top: 80px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .comparison-item {
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(20px);
+            padding: 35px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255,255,255,0.2);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+        
+        .comparison-item:hover {
+            transform: translateY(-10px) scale(1.02);
+            background: rgba(255,255,255,1);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.2);
+        }
+        
+        .comparison-icon {
+            font-size: 3.5em;
+            margin-bottom: 25px;
+            display: inline-block;
+            padding: 15px;
+            background: linear-gradient(135deg, rgba(102,126,234,0.1), rgba(118,75,162,0.1));
+            border-radius: 50%;
+            transition: all 0.4s ease;
+        }
+        
+        .comparison-item:hover .comparison-icon {
+            transform: scale(1.1) rotate(-5deg);
+            background: linear-gradient(135deg, rgba(102,126,234,0.2), rgba(118,75,162,0.2));
+        }
+        
+        .comparison-item h3 {
+            font-size: 1.5em;
+            color: #333;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+        
+        .comparison-stats {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 25px;
+            gap: 20px;
+        }
+        
+        .before, .after {
+            flex: 1;
+            padding: 25px 20px;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .before {
+            background: linear-gradient(135deg, #ffebee, #ffcdd2);
+            border-left: 5px solid #f44336;
+            box-shadow: 0 5px 15px rgba(244,67,54,0.2);
+        }
+        
+        .after {
+            background: linear-gradient(135deg, #e8f5e8, #c8e6c9);
+            border-left: 5px solid #4caf50;
+            box-shadow: 0 5px 15px rgba(76,175,80,0.2);
+        }
+        
+        .comparison-item:hover .before {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(244,67,54,0.3);
+        }
+        
+        .comparison-item:hover .after {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(76,175,80,0.3);
+        }
+        
+        .label {
+            display: block;
+            font-size: 0.9em;
+            font-weight: bold;
+            color: #666;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .value {
+            display: block;
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        .before .value {
+            color: #d32f2f;
+        }
+        
+        .after .value {
+            color: #388e3c;
+        }
+        
+        .description {
+            font-size: 0.9em;
+            color: #555;
+            line-height: 1.5;
+            font-style: italic;
+        }
+        
+        .arrow {
+            font-size: 2.5em;
+            color: #fff;
+            font-weight: bold;
+            flex-shrink: 0;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.1); }
+        }
+        
+        .improvement {
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-weight: bold;
+            display: inline-block;
+            box-shadow: 0 5px 15px rgba(255,107,107,0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9em;
+        }
+        
+        .roi-highlight {
+            margin-top: 100px;
+            text-align: center;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(20px);
+            color: #333;
+            padding: 80px 60px;
+            border-radius: 30px;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        
+        .roi-highlight h3 {
+            font-size: 2.5em;
+            margin-bottom: 25px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .roi-number {
+            font-size: 5em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #ff6b6b, #667eea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            animation: bounce 3s ease-in-out infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .roi-highlight p {
+            font-size: 1.2em;
+            color: #666;
+            font-style: italic;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: #f8f9fa;
+            padding: 100px 0;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+        
+        .testimonial-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .testimonial-card.featured {
+            border: 2px solid #667eea;
+            transform: scale(1.02);
+        }
+        
+        .stars {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            color: #ffd700;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            font-size: 1.1em;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .testimonial-author h4 {
+            margin: 0;
+            color: #333;
+            font-size: 1.1em;
+        }
+        
+        .testimonial-author p {
+            margin: 0;
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        .stats-section {
+            margin-top: 80px;
+            text-align: center;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
+        
+        .stat-item h3 {
+            font-size: 2.5em;
+            color: #667eea;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        .stat-item p {
+            color: #666;
+            font-size: 1.1em;
+        }
+
+        /* Pricing */
+        .pricing {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            padding: 120px 0;
+            position: relative;
+        }
+        
+        .pricing::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(to bottom, rgba(102,126,234,0.05), transparent);
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 80px;
+        }
+        
+        .pricing-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            border: 2px solid rgba(102,126,234,0.1);
+            border-radius: 25px;
+            padding: 45px 35px;
+            text-align: center;
+            position: relative;
+            transition: all 0.5s ease;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+        }
+        
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(102,126,234,0.1), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .pricing-card:hover::before {
+            left: 100%;
+        }
+        
+        .pricing-card:hover {
+            border-color: rgba(102,126,234,0.4);
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 30px 70px rgba(102,126,234,0.2);
+        }
+        
+        .pricing-card.featured {
+            border-color: #667eea;
+            transform: scale(1.08);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            box-shadow: 0 25px 60px rgba(102,126,234,0.3);
+        }
+        
+        .pricing-card.featured:hover {
+            transform: translateY(-15px) scale(1.12);
+            box-shadow: 0 35px 80px rgba(102,126,234,0.4);
+        }
+        
+        .pricing-badge {
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+            color: white;
+            padding: 8px 25px;
+            border-radius: 25px;
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.85em;
+            box-shadow: 0 5px 15px rgba(255,107,107,0.4);
+        }
+        
+        .pricing-title {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            color: #333;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .pricing-card.featured .pricing-title {
+            color: white;
+        }
+        
+        .pricing-price {
+            font-size: 3.5em;
+            color: #667eea;
+            font-weight: bold;
+            margin-bottom: 25px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .pricing-card.featured .pricing-price {
+            color: white;
+            background: none;
+            -webkit-text-fill-color: white;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 35px;
+            text-align: left;
+        }
+        
+        .pricing-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(233,236,239,0.5);
+            font-size: 1em;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .pricing-features li:hover {
+            padding-left: 15px;
+            color: #667eea;
+        }
+        
+        .pricing-card.featured .pricing-features li {
+            border-bottom-color: rgba(255,255,255,0.2);
+            color: rgba(255,255,255,0.9);
+        }
+        
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+        
+        .pricing-card .cta-main {
+            width: 100%;
+            margin-top: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 1.1em;
+            padding: 18px 30px;
+        }
+        
+        .pricing-card.featured .cta-main {
+            background: linear-gradient(45deg, #ffffff, #f0f8ff);
+            color: #667eea;
+        }
+        
+        .pricing-card.featured .cta-main:hover {
+            background: linear-gradient(45deg, #f0f8ff, #e8f4f8);
+            color: #764ba2;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 120px 0;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="c"><stop offset="0%" stop-color="%23ffffff" stop-opacity="0.1"/><stop offset="100%" stop-color="%23ffffff" stop-opacity="0"/></radialGradient></defs><circle cx="300" cy="100" r="150" fill="url(%23c)"/><circle cx="700" cy="600" r="200" fill="url(%23c)"/><circle cx="100" cy="700" r="100" fill="url(%23c)"/></svg>') no-repeat;
+            background-size: cover;
+            animation: float 10s ease-in-out infinite;
+        }
+        
+        .cta-section h2 {
+            font-size: 3.5em;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
+            background: linear-gradient(45deg, #ffffff, #f0f8ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+        
+        .cta-section p {
+            font-size: 1.5em;
+            margin-bottom: 50px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .cta-section .cta-main {
+            position: relative;
+            z-index: 1;
+            font-size: 1.4em;
+            padding: 22px 50px;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #333;
+            color: white;
+            padding: 50px 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 20px;
+            color: #667eea;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3em;
+            }
+            
+            .hero .tagline {
+                font-size: 1.4em;
+            }
+            
+            .hero-description {
+                font-size: 1.1em;
+            }
+            
+            .section-title {
+                font-size: 2.2em;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .feature-card {
+                padding: 35px 25px;
+            }
+            
+            .steps {
+                grid-template-columns: 1fr;
+            }
+            
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .comparison-stats {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .arrow {
+                transform: rotate(90deg);
+                font-size: 2em;
+            }
+            
+            .roi-highlight {
+                padding: 50px 25px;
+                margin-top: 60px;
+            }
+            
+            .roi-number {
+                font-size: 3.5em;
+            }
+            
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+            
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .pricing-card.featured {
+                transform: none;
+            }
+            
+            .cta-section h2 {
+                font-size: 2.5em;
+            }
+            
+            .cta-section p {
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="logo">partnex.net</div>
+                <button class="cta-header">Start Your Journey</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>From Connection to Partnership</h1>
+            <p class="tagline">Connecting Asian Producers with European Markets</p>
+            <p class="hero-description">
+                We create a trusted ecosystem that transforms casual contacts into long-term partnerships, 
+                connecting Asian producers with European markets through transparency, verification, and mutual trust.
+            </p>
+            <button class="cta-main">Find Your European Partner</button>
+            <button class="cta-secondary">Discover Asian Suppliers</button>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Why Choose Partnex?</h2>
+            <p class="features-subtitle">Discover the powerful features that transform business connections into profitable partnerships</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3 class="feature-title">Verified Partners Only</h3>
+                    <p>Every company goes through our rigorous verification process. Trade with confidence knowing all partners are legitimate and trustworthy.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🤝</div>
+                    <h3 class="feature-title">Smart Matching</h3>
+                    <p>Our AI-powered matching system connects you with the most relevant partners based on your industry, requirements, and business goals.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💬</div>
+                    <h3 class="feature-title">Secure Communication</h3>
+                    <p>Built-in messaging, video calls, and document sharing tools to nurture relationships and close deals safely and efficiently.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3 class="feature-title">Partnership Analytics</h3>
+                    <p>Track your connections, monitor partnership progress, and get insights to optimize your networking strategy.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌍</div>
+                    <h3 class="feature-title">Cultural Bridge</h3>
+                    <p>Our platform includes cultural insights, language support, and local expertise to bridge the gap between Asian and European business practices.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📈</div>
+                    <h3 class="feature-title">Growth Focused</h3>
+                    <p>From first contact to long-term partnership - we provide tools and support for every stage of your business relationship journey.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How Partnex Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Create & Verify Profile</h3>
+                    <p>Sign up and complete our comprehensive verification process. Upload your business documents and get approved by our expert team.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Discover Partners</h3>
+                    <p>Browse verified partners or let our smart matching algorithm suggest the best potential partners based on your specific needs.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Connect & Communicate</h3>
+                    <p>Reach out to potential partners through our secure platform. Schedule video calls, share documents, and discuss opportunities.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">Build Partnerships</h3>
+                    <p>Convert connections into contracts with our partnership tools. Track progress and grow your business relationships over time.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Before vs After -->
+    <section class="before-after">
+        <div class="container">
+            <h2 class="section-title">Measurable Impact: Before vs After Partnex</h2>
+            <div class="comparison-grid">
+                <div class="comparison-item">
+                    <div class="comparison-icon">🔍</div>
+                    <h3>Partner Discovery Time</h3>
+                    <div class="comparison-stats">
+                        <div class="before">
+                            <span class="label">Before</span>
+                            <span class="value">6-12 months</span>
+                            <span class="description">Manual research, trade shows, cold outreach</span>
+                        </div>
+                        <div class="arrow">→</div>
+                        <div class="after">
+                            <span class="label">After</span>
+                            <span class="value">2-4 weeks</span>
+                            <span class="description">AI-powered matching, verified database</span>
+                        </div>
+                    </div>
+                    <div class="improvement">75% faster</div>
+                </div>
+
+                <div class="comparison-item">
+                    <div class="comparison-icon">💰</div>
+                    <h3>Partnership Success Rate</h3>
+                    <div class="comparison-stats">
+                        <div class="before">
+                            <span class="label">Before</span>
+                            <span class="value">8-15%</span>
+                            <span class="description">Cold leads, unverified contacts</span>
+                        </div>
+                        <div class="arrow">→</div>
+                        <div class="after">
+                            <span class="label">After</span>
+                            <span class="value">45-60%</span>
+                            <span class="description">Pre-qualified, matched partners</span>
+                        </div>
+                    </div>
+                    <div class="improvement">4x higher success</div>
+                </div>
+
+                <div class="comparison-item">
+                    <div class="comparison-icon">💸</div>
+                    <h3>Partnership Acquisition Cost</h3>
+                    <div class="comparison-stats">
+                        <div class="before">
+                            <span class="label">Before</span>
+                            <span class="value">$25,000</span>
+                            <span class="description">Trade shows, travel, failed attempts</span>
+                        </div>
+                        <div class="arrow">→</div>
+                        <div class="after">
+                            <span class="label">After</span>
+                            <span class="value">$3,500</span>
+                            <span class="description">Platform subscription, direct connections</span>
+                        </div>
+                    </div>
+                    <div class="improvement">86% cost reduction</div>
+                </div>
+
+                <div class="comparison-item">
+                    <div class="comparison-icon">⚡</div>
+                    <h3>Time to First Deal</h3>
+                    <div class="comparison-stats">
+                        <div class="before">
+                            <span class="label">Before</span>
+                            <span class="value">8-18 months</span>
+                            <span class="description">Building trust from zero, negotiations</span>
+                        </div>
+                        <div class="arrow">→</div>
+                        <div class="after">
+                            <span class="label">After</span>
+                            <span class="value">6-12 weeks</span>
+                            <span class="description">Verified partners, built-in trust</span>
+                        </div>
+                    </div>
+                    <div class="improvement">70% faster deals</div>
+                </div>
+
+                <div class="comparison-item">
+                    <div class="comparison-icon">📊</div>
+                    <h3>Partnership Visibility</h3>
+                    <div class="comparison-stats">
+                        <div class="before">
+                            <span class="label">Before</span>
+                            <span class="value">0%</span>
+                            <span class="description">No tracking, scattered communications</span>
+                        </div>
+                        <div class="arrow">→</div>
+                        <div class="after">
+                            <span class="label">After</span>
+                            <span class="value">100%</span>
+                            <span class="description">Full analytics, progress tracking</span>
+                        </div>
+                    </div>
+                    <div class="improvement">Complete transparency</div>
+                </div>
+
+                <div class="comparison-item">
+                    <div class="comparison-icon">🌐</div>
+                    <h3>Market Expansion Speed</h3>
+                    <div class="comparison-stats">
+                        <div class="before">
+                            <span class="label">Before</span>
+                            <span class="value">2-3 countries/year</span>
+                            <span class="description">Slow, resource-intensive expansion</span>
+                        </div>
+                        <div class="arrow">→</div>
+                        <div class="after">
+                            <span class="label">After</span>
+                            <span class="value">8-12 countries/year</span>
+                            <span class="description">Rapid, scalable growth</span>
+                        </div>
+                    </div>
+                    <div class="improvement">4x faster expansion</div>
+                </div>
+            </div>
+
+            <div class="roi-highlight">
+                <h3>Average ROI in First Year</h3>
+                <div class="roi-number">340%</div>
+                <p>Based on 500+ companies using Partnex Professional plan</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Our Partners Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"Partnex helped us find reliable European distributors within just 2 months. The verification process gave us confidence, and now we have 3 long-term partnerships generating over $2M annually."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">LW</div>
+                        <div>
+                            <h4>Li Wei</h4>
+                            <p>CEO, Shanghai Electronics Co.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card featured">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"As a European buyer, finding trustworthy Asian suppliers was always challenging. Partnex's verification system and cultural bridge support made all the difference. We've reduced sourcing time by 60%."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MS</div>
+                        <div>
+                            <h4>Marcus Schmidt</h4>
+                            <p>Procurement Director, Berlin Tech GmbH</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"The smart matching feature is incredible. Instead of cold outreach, we get warm introductions to pre-qualified partners. Our success rate increased from 5% to 45%."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">AK</div>
+                        <div>
+                            <h4>Akiko Tanaka</h4>
+                            <p>Export Manager, Tokyo Manufacturing</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"Partnex isn't just a platform - it's a partnership ecosystem. The ongoing support, cultural insights, and relationship tools helped us build partnerships that last years, not months."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">CM</div>
+                        <div>
+                            <h4>Claire Moreau</h4>
+                            <p>International Sales, Paris Fashion Group</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"We were skeptical about online B2B platforms, but Partnex proved different. The video calls, document sharing, and progress tracking made remote partnership building feel personal and secure."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">RK</div>
+                        <div>
+                            <h4>Raj Kumar</h4>
+                            <p>Founder, Mumbai Textiles Ltd.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"From first contact to signed contract in 6 weeks! Partnex's partnership analytics helped us identify the most promising leads and focus our efforts effectively."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">IA</div>
+                        <div>
+                            <h4>Isabella Andersson</h4>
+                            <p>Business Development, Stockholm Innovations</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="stats-section">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <h3>15,000+</h3>
+                        <p>Verified Companies</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>89%</h3>
+                        <p>Partnership Success Rate</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>$500M+</h3>
+                        <p>In Partnerships Created</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>45</h3>
+                        <p>Countries Connected</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing">
+        <div class="container">
+            <h2 class="section-title">Choose Your Plan</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3 class="pricing-title">Free</h3>
+                    <div class="pricing-price">$0<span style="font-size: 0.4em;">/month</span></div>
+                    <ul class="pricing-features">
+                        <li>✓ Browse verified partners</li>
+                        <li>✓ 1 connection request/month</li>
+                        <li>✓ Basic company profile</li>
+                        <li>✓ Standard messaging</li>
+                        <li>✓ Community support</li>
+                        <li>✗ Advanced matching</li>
+                        <li>✗ Video calls</li>
+                        <li>✗ Analytics</li>
+                    </ul>
+                    <button class="cta-main">Get Started Free</button>
+                </div>
+                
+                <div class="pricing-card">
+                    <h3 class="pricing-title">Starter</h3>
+                    <div class="pricing-price">$199<span style="font-size: 0.4em;">/month</span></div>
+                    <ul class="pricing-features">
+                        <li>✓ Basic partner search</li>
+                        <li>✓ 5 connection requests/month</li>
+                        <li>✓ Standard verification</li>
+                        <li>✓ Basic analytics</li>
+                        <li>✓ Email support</li>
+                        <li>✓ Document sharing</li>
+                        <li>✗ Video calls</li>
+                        <li>✗ Priority support</li>
+                    </ul>
+                    <button class="cta-main">Start Free Trial</button>
+                </div>
+                
+                <div class="pricing-card featured">
+                    <div class="pricing-badge">Most Popular</div>
+                    <h3 class="pricing-title">Professional</h3>
+                    <div class="pricing-price">$499<span style="font-size: 0.4em;">/month</span></div>
+                    <ul class="pricing-features">
+                        <li>✓ Advanced partner matching</li>
+                        <li>✓ 25 connection requests/month</li>
+                        <li>✓ Priority verification</li>
+                        <li>✓ Advanced analytics & insights</li>
+                        <li>✓ Video call scheduling</li>
+                        <li>✓ Document sharing</li>
+                        <li>✓ Priority support</li>
+                        <li>✓ Cultural consultation</li>
+                    </ul>
+                    <button class="cta-main">Start Free Trial</button>
+                </div>
+                
+                <div class="pricing-card">
+                    <h3 class="pricing-title">Enterprise</h3>
+                    <div class="pricing-price">$999<span style="font-size: 0.4em;">/month</span></div>
+                    <ul class="pricing-features">
+                        <li>✓ Unlimited connections</li>
+                        <li>✓ AI-powered recommendations</li>
+                        <li>✓ White-label options</li>
+                        <li>✓ Custom integrations</li>
+                        <li>✓ Dedicated account manager</li>
+                        <li>✓ Cultural consultation</li>
+                        <li>✓ 24/7 phone support</li>
+                        <li>✓ Custom reporting</li>
+                    </ul>
+                    <button class="cta-main">Contact Sales</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Build Your Next Partnership?</h2>
+            <p>Join thousands of companies already connecting through Partnex</p>
+            <button class="cta-main">Start Your 14-Day Free Trial</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Partnex.net</h3>
+                    <p>Transforming business connections into lasting partnerships between Asian producers and European markets.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>For Producers</h3>
+                    <p>Find European distributors<br>
+                    Expand your market reach<br>
+                    Build trusted relationships</p>
+                </div>
+                <div class="footer-section">
+                    <h3>For Buyers</h3>
+                    <p>Discover verified suppliers<br>
+                    Access quality products<br>
+                    Secure partnerships</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <p>Help Center<br>
+                    Contact Us<br>
+                    API Documentation</p>
+                </div>
+            </div>
+            <p>&copy; 2025 Partnex.net - From Connection to Partnership</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.feature-card, .pricing-card');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            });
+            
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>
